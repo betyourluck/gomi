@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+    <gresource prefix="/org/gnome/gimage">
+        <file alias="mainwindow" preprocess="xml-stripblanks">ui/mainwindow.glade</file>
+    </gresource>
+</gresources>
