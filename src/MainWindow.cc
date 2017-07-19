@@ -11,13 +11,22 @@ MainWindow::MainWindow(BaseObjectType* base, const Glib::RefPtr<Gtk::Builder>& r
           openButton(nullptr),
           saveButton(nullptr),
           fullscreenButton(nullptr),
-          closeButton(nullptr)
+          closeButton(nullptr),
+          hScale(nullptr)
 {
     imageFilesView   = UtilWidget::concreteWidget<Gtk::TreeView>(builder, "MainTreeView");
     openButton       = UtilWidget::concreteWidget<Gtk::ToolButton>(builder, "OpenButton");
     saveButton       = UtilWidget::concreteWidget<Gtk::ToolButton>(builder, "SaveButton");
     fullscreenButton = UtilWidget::concreteWidget<Gtk::ToolButton>(builder, "FullScreenButton");
     closeButton      = UtilWidget::concreteWidget<Gtk::ToolButton>(builder, "CloseButton");
+    hScale           = UtilWidget::concreteWidget<Gtk::Scale>(builder, "HScale");
+
+    // 範囲をセット
+    hScale->set_range(1,5);
+    // 変化量をセット
+    hScale->set_increments( 1, 1 );
+    // 初期値をセット
+    hScale->set_value(1);
 
     createTreeView();
 

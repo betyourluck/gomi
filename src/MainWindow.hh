@@ -16,7 +16,9 @@ private:
     Glib::RefPtr<Gtk::ToolButton> saveButton;
     Glib::RefPtr<Gtk::ToolButton> fullscreenButton;
     Glib::RefPtr<Gtk::ToolButton> closeButton;
+    Glib::RefPtr<Gtk::Scale>      hScale;
     Glib::RefPtr<Gtk::ListStore>  listStore;
+
     /**
      * @class TreeViewRecord
      * @details
