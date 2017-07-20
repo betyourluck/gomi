@@ -43,7 +43,7 @@ add_custom_command(
         ${CMAKE_CURRENT_SOURCE_DIR})
 set(RESOURCE ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_resources.h
              ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}_resources.c)
-add_executable(gImage ${SOURCE_FILES} ${RESOURCE})
+add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${RESOURCE})
 
 find_package(PkgConfig)
 pkg_check_modules(LIBGTKMM REQUIRED gtkmm-3.0)
