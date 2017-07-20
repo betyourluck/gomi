@@ -22,30 +22,28 @@ MainWindow::MainWindow(BaseObjectType* base, const Glib::RefPtr<Gtk::Builder>& r
     hScale           = UtilWidget::concreteWidget<Gtk::Scale>(builder, "HScale");
 
     // 範囲をセット
-    hScale->set_range(1,5);
+    hScale->set_range(1,100);
     // 変化量をセット
-    hScale->set_increments( 1, 1 );
+    hScale->set_increments(1, 1);
     // 初期値をセット
     hScale->set_value(1);
 
     createTreeView();
 
     openButton->signal_clicked().connect(
-            sigc::mem_fun(*this, &MainWindow::on_button1_clicked));
+            sigc::mem_fun(*this, &MainWindow::on_open_button_clicked));
     saveButton->signal_clicked().connect(
             sigc::mem_fun(*this, &MainWindow::on_button2_clicked));
     fullscreenButton->signal_clicked().connect(
             sigc::mem_fun(*this, &MainWindow::on_button3_clicked));
     closeButton->signal_clicked().connect(
-            sigc::mem_fun(*this, &MainWindow::on_button4_clicked));
+            sigc::mem_fun(*this, &MainWindow::on_close_button_clicked));
 
     show_all_children();
 }
 
 MainWindow::~MainWindow()
 {
-    Gtk::MessageDialog dlg( *this, "end");
-    dlg.run();
 }
 
 void MainWindow::createTreeView()
@@ -71,10 +69,19 @@ void MainWindow::createTreeView()
     }
 }
 
-void MainWindow::on_button1_clicked()
+void MainWindow::on_open_button_clicked()
 {
-    Gtk::MessageDialog dlg( *this, "4");
-    dlg.run();
+    Gtk::FileChooserDialog dlg("フォルダを選択してください",
+                                  Gtk::FILE_CHOOSER_ACTION_SELECT_FOLDER);
+
+    dlg.add_button(Gtk::Stock::CANCEL, Gtk::RESPONSE_CANCEL);
+    dlg.add_button(Gtk::Stock::OPEN, Gtk::RESPONSE_OK);
+
+
+    if (dlg.run()==Gtk::RESPONSE_CANCEL) return;
+
+    Gtk::MessageDialog msgdlg( *this, dlg.get_filename());
+    msgdlg.run();
 }
 
 void MainWindow::on_button2_clicked()
@@ -89,11 +96,15 @@ void MainWindow::on_button3_clicked()
     dlg.run();
 }
 
-void MainWindow::on_button4_clicked()
+void MainWindow::on_close_button_clicked()
 {
-    Gtk::MessageDialog dlg( *this, "Close OK?");
-    dlg.run();
     close();
+}
+
+void MainWindow::raise()
+{
+    Gtk::MessageDialog dlg( *this, "raise");
+    dlg.run();
 }
 
 

@@ -39,10 +39,10 @@ public:
     virtual ~MainWindow();
 
     //Signal
-    void on_button1_clicked();
+    void on_open_button_clicked();
     void on_button2_clicked();
     void on_button3_clicked();
-    void on_button4_clicked();
+    void on_close_button_clicked();
 
 protected:
 
@@ -51,6 +51,9 @@ protected:
      * @details
      */
     void createTreeView();
+
+public:
+    void raise() override;
 
 };
 
