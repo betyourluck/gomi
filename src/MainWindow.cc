@@ -101,10 +101,5 @@ void MainWindow::on_close_button_clicked()
     close();
 }
 
-void MainWindow::raise()
-{
-    Gtk::MessageDialog dlg( *this, "raise");
-    dlg.run();
-}
 
 

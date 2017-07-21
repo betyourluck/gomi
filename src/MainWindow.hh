@@ -34,26 +34,19 @@ private:
 
     TreeViewRecord record;
 
+protected:
+    void createTreeView();
+
 public:
     MainWindow(BaseObjectType* cobject, const Glib::RefPtr<Gtk::Builder>& refBuilder);
     virtual ~MainWindow();
 
+public:
     //Signal
     void on_open_button_clicked();
     void on_button2_clicked();
     void on_button3_clicked();
     void on_close_button_clicked();
-
-protected:
-
-    /**
-     * @name
-     * @details
-     */
-    void createTreeView();
-
-public:
-    void raise() override;
 
 };
 
