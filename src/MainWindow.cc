@@ -86,13 +86,13 @@ void MainWindow::on_open_button_clicked()
 
 void MainWindow::on_button2_clicked()
 {
-    Gtk::MessageDialog dlg( *this, "4");
+    Gtk::MessageDialog dlg( *this, "保存");
     dlg.run();
 }
 
 void MainWindow::on_button3_clicked()
 {
-    Gtk::MessageDialog dlg( *this, "4");
+    Gtk::MessageDialog dlg( *this, "フルスクリーン");
     dlg.run();
 }
 
