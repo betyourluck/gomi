@@ -86,7 +86,7 @@ void MainWindow::on_open_button_clicked()
 
 void MainWindow::on_button2_clicked()
 {
-    Gtk::MessageDialog dlg( *this, "保存");
+    Gtk::MessageDialog dlg( *this, "リスト保存");
     dlg.run();
 }
 
