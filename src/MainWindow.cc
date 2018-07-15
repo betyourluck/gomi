@@ -22,11 +22,11 @@ MainWindow::MainWindow(BaseObjectType* base, const Glib::RefPtr<Gtk::Builder>& r
     hScale           = UtilWidget::concreteWidget<Gtk::Scale>(builder, "HScale");
 
     // 範囲をセット
-    hScale->set_range(1,100);
+    hScale->set_range(0,100);
     // 変化量をセット
     hScale->set_increments(1, 1);
     // 初期値をセット
-    hScale->set_value(1);
+    hScale->set_value(0);
 
     createTreeView();
 
